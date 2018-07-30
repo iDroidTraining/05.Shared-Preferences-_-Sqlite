@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_shared_preferences"
+    android:layout_width="match_parent"
+    android:layout_margin="3dp"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_shared_preferences"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="27dp"
+        tools:text="TextView"/>
+
+    <EditText
+        android:id="@+id/et_shared_preferences"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_shared_preferences"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="33dp"
+        android:ems="10"
+        android:hint="@string/enter_anything_here_to_save_on_shared_preferences"
+        android:inputType="textPersonName"/>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_shared_preferences"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="143dp"
+        android:text="@string/save"/>
+</RelativeLayout>

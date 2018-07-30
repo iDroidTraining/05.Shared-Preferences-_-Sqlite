@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SharedPreferences</string>
+    <string name="enter_anything_here_to_save_on_shared_preferences">Enter anything here to save on Shared Preferences</string>
+    <string name="save">Save</string>
+</resources>
