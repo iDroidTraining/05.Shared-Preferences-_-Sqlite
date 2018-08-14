@@ -7,29 +7,32 @@ import android.widget.*;
 
 public class SharedPreferencesActivity extends AppCompatActivity {
 
-    public static final String MY_PREFS_NAME = "mypref";
     private EditText etTextValue;
     private TextView tvRestoredLabel;
     private Button btSave;
-    private SharedPreferences sharedPreferences;
-    private static final String DEFAULT_STRING = "There is no name saved!";
-    private static final String PREF_KEY_NAME = "name";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shared_preferences);
         initViews();
-        sharedPreferences = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
-        String restoredText = sharedPreferences.getString(PREF_KEY_NAME, DEFAULT_STRING);
-        tvRestoredLabel.setText(restoredText);
+        readFromPreferences();
+        writeToPreferences();
+    }
+
+    private void writeToPreferences() {
         btSave.setOnClickListener(v -> {
-            SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE)
+            SharedPreferences.Editor editor = getSharedPreferences("mySharedFile", MODE_PRIVATE)
                     .edit();
-            editor.putString(PREF_KEY_NAME, etTextValue.getText().toString());
+            editor.putString("nameKey", etTextValue.getText().toString());
             editor.apply();
         });
+    }
 
+    private void readFromPreferences() {
+        SharedPreferences sharedPreferences = getSharedPreferences("mySharedFile", MODE_PRIVATE);
+        String restoredText = sharedPreferences.getString("nameKey", "There is nothing saved!");
+        tvRestoredLabel.setText(restoredText);
     }
 
     private void initViews() {
